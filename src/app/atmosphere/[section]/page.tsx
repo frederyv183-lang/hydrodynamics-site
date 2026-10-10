@@ -8,6 +8,7 @@ import PlanckChart from "@/components/charts/PlanckChart";
 import ExtinctionChart from "@/components/charts/ExtinctionChart";
 import RadiationBalanceChart from "@/components/charts/RadiationBalanceChart";
 import GeostrophicWindChart from "@/components/charts/GeostrophicWindChart";
+import BoundaryLayerChart from "@/components/charts/BoundaryLayerChart";
 import { getSection, sections } from "@/data/atmosphere";
 
 type Params = { params: { section: string } };
@@ -69,6 +70,16 @@ function getChart(slug: string) {
         description="При фиксированном градиенте давления (1 гПа/100 км) и плотности воздуха (1.3 кг/м³). На экваторе (f = 0) геострофический баланс невозможен."
       >
         <GeostrophicWindChart />
+      </Chart>
+    );
+  }
+  if (slug === "boundary-layer") {
+    return (
+      <Chart
+        title="Логарифмический профиль ветра для разных поверхностей"
+        description="u* = 0.3 м/с, κ = 0.4. Ось Y — высота в логарифмическом масштабе (0.1–100 м). Трава: z0 = 0.03 м, лес: z0 = 1 м, город: z0 = 2 м."
+      >
+        <BoundaryLayerChart />
       </Chart>
     );
   }

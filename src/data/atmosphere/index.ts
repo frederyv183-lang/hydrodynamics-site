@@ -8,6 +8,7 @@ import { earthRadiation } from "./earth-radiation";
 import { radiationBalance } from "./radiation-balance";
 import { thermodynamics } from "./thermodynamics";
 import { dynamics } from "./dynamics";
+import { boundaryLayer } from "./boundary-layer";
 
 export type AtmosphereFormula = {
   slug: string;
@@ -45,6 +46,7 @@ export const sections: AtmosphereSection[] = [
   radiationBalance,
   thermodynamics,
   dynamics,
+  boundaryLayer,
 ].sort((a, b) => a.order - b.order);
 
 export function getSection(slug: string): AtmosphereSection | undefined {
