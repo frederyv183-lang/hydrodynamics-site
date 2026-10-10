@@ -1,0 +1,140 @@
+﻿import { notFound } from "next/navigation";
+import Link from "next/link";
+import Breadcrumbs from "@/components/ui/Breadcrumbs";
+import Formula from "@/components/ui/Formula";
+import { getSection, sections } from "@/data/atmosphere";
+
+type Params = { params: { section: string } };
+
+export function generateStaticParams() {
+  return sections.map((s) => ({ section: s.slug }));
+}
+
+export function generateMetadata({ params }: Params) {
+  const s = getSection(params.section);
+  return { title: s ? `${s.title} — Физика атмосферы` : "Физика атмосферы" };
+}
+
+export default function AtmosphereSectionPage({ params }: Params) {
+  const s = getSection(params.section);
+  if (!s) notFound();
+
+  const prev = sections.find((x) => x.order === s.order - 1);
+  const next = sections.find((x) => x.order === s.order + 1);
+
+  return (
+    <article className="max-w-3xl">
+      <Breadcrumbs
+        items={[
+          { href: "/", label: "Главная" },
+          { href: "/atmosphere", label: "Физика атмосферы" },
+          { label: s.title }
+        ]}
+      />
+
+      <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-brand-50 px-3 py-1 text-xs font-medium text-brand-700">
+        <span>{s.matveevChapter}</span>
+        <span className="text-brand-300">·</span>
+        <span>Раздел {s.order} из {sections.length}</span>
+      </div>
+
+      <h1 className="text-3xl font-bold text-brand-900">{s.title}</h1>
+      <p className="mt-3 text-slate-600">{s.description}</p>
+
+      {s.concepts.length > 0 ? (
+        <section className="mt-10">
+          <h2 className="text-2xl font-semibold text-slate-900">
+            Основные понятия
+          </h2>
+          <dl className="mt-4 divide-y divide-slate-200 rounded-xl border border-slate-200 bg-white">
+            {s.concepts.map((c) => (
+              <div key={c.term} className="px-5 py-4">
+                <dt className="font-semibold text-slate-900">{c.term}</dt>
+                <dd className="mt-1 text-sm text-slate-700">{c.definition}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      ) : null}
+
+      {s.formulas.length > 0 ? (
+        <section className="mt-10 space-y-6">
+          <h2 className="text-2xl font-semibold text-slate-900">
+            Формулы раздела
+          </h2>
+          {s.formulas.map((f) => (
+            <div
+              key={f.slug}
+              className="rounded-xl border border-slate-200 bg-white p-6"
+            >
+              <h3 className="text-lg font-semibold text-slate-900">
+                {f.title}
+              </h3>
+              <p className="mt-1 text-sm text-slate-600">{f.short}</p>
+
+              <div className="formula-block mt-4 overflow-x-auto rounded-lg bg-slate-50 px-6 py-6 text-center text-xl">
+                <Formula latex={f.latex} display />
+              </div>
+
+              {f.about ? (
+                <p className="mt-4 text-sm text-slate-700">{f.about}</p>
+              ) : null}
+
+              {f.variables?.length ? (
+                <div className="mt-4">
+                  <div className="text-xs font-medium uppercase tracking-wide text-slate-500">
+                    Обозначения
+                  </div>
+                  <ul className="mt-2 divide-y divide-slate-100">
+                    {f.variables.map((v) => (
+                      <li
+                        key={v.symbol}
+                        className="flex items-center gap-3 py-2"
+                      >
+                        <span className="min-w-[3rem] text-center">
+                          <Formula latex={v.symbol} />
+                        </span>
+                        <span className="text-sm text-slate-700">
+                          {v.meaning}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
+            </div>
+          ))}
+        </section>
+      ) : (
+        <section className="mt-10 rounded-xl border border-dashed border-slate-300 bg-slate-50 px-6 py-10 text-center">
+          <p className="text-slate-600">
+            Раздел в работе. Формулы и понятия появятся позже.
+          </p>
+        </section>
+      )}
+
+      <nav className="mt-12 flex items-center justify-between border-t border-slate-200 pt-6 text-sm">
+        {prev ? (
+          <Link
+            href={`/atmosphere/${prev.slug}`}
+            className="text-brand-700 hover:text-brand-800"
+          >
+            ← {prev.title}
+          </Link>
+        ) : (
+          <span />
+        )}
+        {next ? (
+          <Link
+            href={`/atmosphere/${next.slug}`}
+            className="text-brand-700 hover:text-brand-800"
+          >
+            {next.title} →
+          </Link>
+        ) : (
+          <span />
+        )}
+      </nav>
+    </article>
+  );
+}

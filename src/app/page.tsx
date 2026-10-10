@@ -6,7 +6,7 @@ import DragVsSpeedChart from "@/components/charts/DragVsSpeedChart";
 import ReRegimeChart from "@/components/charts/ReRegimeChart";
 import { formulas } from "@/data/formulas";
 import { models } from "@/data/models";
-import { atmosphereEntries } from "@/data/atmosphere";
+import { sections as atmosphereSections } from "@/data/atmosphere";
 
 const sections = [
   {
@@ -24,14 +24,14 @@ const sections = [
   {
     href: "/calculators",
     title: "Калькуляторы",
-    description: "Интерактивные расчёты: число Рейнольдса, расход, потери напора.",
+    description: "Интерактивные расчёты: число Рейнольдса, влажность, потери напора.",
     badge: "Инструменты"
   },
   {
     href: "/atmosphere",
-    title: "Атмосфера и океан",
-    description: "Числа Ричардсона, Россби, Фруда, геострофический ветер, внутренние волны.",
-    badge: "Геофизика"
+    title: "Физика атмосферы",
+    description: "Курс по учебнику Матвеева: от состава атмосферы до радиации и термодинамики.",
+    badge: "Курс"
   }
 ];
 
@@ -137,24 +137,24 @@ export default function HomePage() {
       </Section>
 
       <Section
-        title="Атмосфера и океан"
+        title="Физика атмосферы"
         action={
           <Link
             href="/atmosphere"
             className="text-sm font-medium text-brand-700 hover:text-brand-800"
           >
-            Все материалы →
+            Все разделы курса →
           </Link>
         }
       >
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {atmosphereEntries.slice(0, 3).map((e) => (
+          {atmosphereSections.slice(0, 3).map((s) => (
             <Card
-              key={e.slug}
-              href={`/atmosphere/${e.slug}`}
-              title={e.title}
-              description={e.short}
-              badge={e.category}
+              key={s.slug}
+              href={`/atmosphere/${s.slug}`}
+              title={s.title}
+              description={s.short}
+              badge={s.matveevChapter}
             />
           ))}
         </div>
