@@ -9,6 +9,7 @@ import ExtinctionChart from "@/components/charts/ExtinctionChart";
 import RadiationBalanceChart from "@/components/charts/RadiationBalanceChart";
 import GeostrophicWindChart from "@/components/charts/GeostrophicWindChart";
 import BoundaryLayerChart from "@/components/charts/BoundaryLayerChart";
+import PhaseTransitionsChart from "@/components/charts/PhaseTransitionsChart";
 import { getSection, sections } from "@/data/atmosphere";
 
 type Params = { params: { section: string } };
@@ -83,7 +84,16 @@ function getChart(slug: string) {
       </Chart>
     );
   }
-  return null;
+  if (slug === "phase-transitions") {
+    return (
+      <Chart
+        title="Упругость насыщения над водой и надо льдом"
+        description="Формула Магнуса для E_s(T). T от −20 до +40 °C. Над водой (сплошная) и надо льдом (пунктир). Разница максимальна при T ≈ −12 °C."
+      >
+        <PhaseTransitionsChart />
+      </Chart>
+    );
+  }  return null;
 }
 
 export default function AtmosphereSectionPage({ params }: Params) {
