@@ -12,6 +12,7 @@ import BoundaryLayerChart from "@/components/charts/BoundaryLayerChart";
 import PhaseTransitionsChart from "@/components/charts/PhaseTransitionsChart";
 import TurbulenceChart from "@/components/charts/TurbulenceChart";
 import OpticsChart from "@/components/charts/OpticsChart";
+import CloudSpectrumChart from "@/components/charts/CloudSpectrumChart";
 import { getSection, sections } from "@/data/atmosphere";
 
 type Params = { params: { section: string } };
@@ -113,6 +114,16 @@ function getChart(slug: string) {
         description="Зависимость угла радуги от показателя преломления воды n. Главная радуга — 1 внутреннее отражение, вторичная — 2. При n = 1.33: главная ≈ 42°, вторичная ≈ 51°."
       >
         <OpticsChart />
+      </Chart>
+    );
+  }
+  if (slug === "clouds") {
+    return (
+      <Chart
+        title="Спектр облачных капель для разных типов облаков"
+        description="Гамма-распределение n(r) = a·r^α·exp(−b·r). St (слоистые, r_m = 5 мкм), Cu (кучевые, r_m = 10 мкм), Cb (кучево-дождевые, r_m = 18 мкм). Ось X — радиус капли в мкм."
+      >
+        <CloudSpectrumChart />
       </Chart>
     );
   }
