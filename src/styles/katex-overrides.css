@@ -1,0 +1,7 @@
+﻿.katex {
+  font-size: 1.05em;
+}
+
+.formula-block .katex-display {
+  margin: 0;
+}
