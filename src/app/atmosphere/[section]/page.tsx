@@ -5,6 +5,7 @@ import Formula from "@/components/ui/Formula";
 import Chart from "@/components/ui/Chart";
 import TemperatureProfileChart from "@/components/charts/TemperatureProfileChart";
 import PlanckChart from "@/components/charts/PlanckChart";
+import ExtinctionChart from "@/components/charts/ExtinctionChart";
 import { getSection, sections } from "@/data/atmosphere";
 
 type Params = { params: { section: string } };
@@ -23,7 +24,7 @@ function getChart(slug: string) {
     return (
       <Chart
         title="Профиль температуры по высоте (стандартная атмосфера)"
-        description="Слои: тропосфера (0–11 км, γ = 6.5 °C/км), стратосфера (11–50 км), мезосфера (50–90 км), термосфера (90+ км)."
+        description="Слои: тропосфера (0–11 км), стратосфера (11–50 км), мезосфера (50–90 км), термосфера (90+ км)."
       >
         <TemperatureProfileChart />
       </Chart>
@@ -36,6 +37,16 @@ function getChart(slug: string) {
         description="Закон Планка. С ростом температуры максимум смещается в коротковолновую область (закон Вина)."
       >
         <PlanckChart />
+      </Chart>
+    );
+  }
+  if (slug === "extinction") {
+    return (
+      <Chart
+        title="Ослабление солнечной радиации по закону Буге"
+        description="Относительный поток F/F₀ = p^m в зависимости от высоты Солнца для трёх коэффициентов прозрачности p."
+      >
+        <ExtinctionChart />
       </Chart>
     );
   }
