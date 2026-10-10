@@ -2,6 +2,9 @@
 import Link from "next/link";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import Formula from "@/components/ui/Formula";
+import Chart from "@/components/ui/Chart";
+import TemperatureProfileChart from "@/components/charts/TemperatureProfileChart";
+import PlanckChart from "@/components/charts/PlanckChart";
 import { getSection, sections } from "@/data/atmosphere";
 
 type Params = { params: { section: string } };
@@ -15,12 +18,37 @@ export function generateMetadata({ params }: Params) {
   return { title: s ? `${s.title} — Физика атмосферы` : "Физика атмосферы" };
 }
 
+function getChart(slug: string) {
+  if (slug === "structure") {
+    return (
+      <Chart
+        title="Профиль температуры по высоте (стандартная атмосфера)"
+        description="Слои: тропосфера (0–11 км, γ = 6.5 °C/км), стратосфера (11–50 км), мезосфера (50–90 км), термосфера (90+ км)."
+      >
+        <TemperatureProfileChart />
+      </Chart>
+    );
+  }
+  if (slug === "solar-radiation") {
+    return (
+      <Chart
+        title="Спектр излучения чёрного тела при разных температурах"
+        description="Закон Планка. С ростом температуры максимум смещается в коротковолновую область (закон Вина)."
+      >
+        <PlanckChart />
+      </Chart>
+    );
+  }
+  return null;
+}
+
 export default function AtmosphereSectionPage({ params }: Params) {
   const s = getSection(params.section);
   if (!s) notFound();
 
   const prev = sections.find((x) => x.order === s.order - 1);
   const next = sections.find((x) => x.order === s.order + 1);
+  const chart = getChart(s.slug);
 
   return (
     <article className="max-w-3xl">
@@ -112,6 +140,15 @@ export default function AtmosphereSectionPage({ params }: Params) {
           </p>
         </section>
       )}
+
+      {chart ? (
+        <section className="mt-10">
+          <h2 className="text-2xl font-semibold text-slate-900">
+            Визуализация
+          </h2>
+          <div className="mt-4">{chart}</div>
+        </section>
+      ) : null}
 
       <nav className="mt-12 flex items-center justify-between border-t border-slate-200 pt-6 text-sm">
         {prev ? (
