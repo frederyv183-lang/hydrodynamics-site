@@ -11,6 +11,7 @@ import GeostrophicWindChart from "@/components/charts/GeostrophicWindChart";
 import BoundaryLayerChart from "@/components/charts/BoundaryLayerChart";
 import PhaseTransitionsChart from "@/components/charts/PhaseTransitionsChart";
 import TurbulenceChart from "@/components/charts/TurbulenceChart";
+import OpticsChart from "@/components/charts/OpticsChart";
 import { getSection, sections } from "@/data/atmosphere";
 
 type Params = { params: { section: string } };
@@ -94,7 +95,8 @@ function getChart(slug: string) {
         <PhaseTransitionsChart />
       </Chart>
     );
-  }  if (slug === "turbulence") {
+  }
+  if (slug === "turbulence") {
     return (
       <Chart
         title="Коэффициент турбулентности K(z) при разных стратификациях"
@@ -103,7 +105,18 @@ function getChart(slug: string) {
         <TurbulenceChart />
       </Chart>
     );
-  }  return null;
+  }
+  if (slug === "optics") {
+    return (
+      <Chart
+        title="Углы главной и вторичной радуги"
+        description="Зависимость угла радуги от показателя преломления воды n. Главная радуга — 1 внутреннее отражение, вторичная — 2. При n = 1.33: главная ≈ 42°, вторичная ≈ 51°."
+      >
+        <OpticsChart />
+      </Chart>
+    );
+  }
+  return null;
 }
 
 export default function AtmosphereSectionPage({ params }: Params) {

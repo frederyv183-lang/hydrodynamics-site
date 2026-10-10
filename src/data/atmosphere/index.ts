@@ -11,6 +11,7 @@ import { dynamics } from "./dynamics";
 import { boundaryLayer } from "./boundary-layer";
 import { phaseTransitions } from "./phase-transitions";
 import { turbulence } from "./turbulence";
+import { optics } from "./optics";
 
 export type AtmosphereFormula = {
   slug: string;
@@ -51,6 +52,7 @@ export const sections: AtmosphereSection[] = [
   boundaryLayer,
   phaseTransitions,
   turbulence,
+  optics,
 ].sort((a, b) => a.order - b.order);
 
 export function getSection(slug: string): AtmosphereSection | undefined {
