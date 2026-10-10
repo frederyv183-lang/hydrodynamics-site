@@ -13,6 +13,7 @@ import PhaseTransitionsChart from "@/components/charts/PhaseTransitionsChart";
 import TurbulenceChart from "@/components/charts/TurbulenceChart";
 import OpticsChart from "@/components/charts/OpticsChart";
 import CloudSpectrumChart from "@/components/charts/CloudSpectrumChart";
+import CirculationChart from "@/components/charts/CirculationChart";
 import { getSection, sections } from "@/data/atmosphere";
 
 type Params = { params: { section: string } };
@@ -124,6 +125,16 @@ function getChart(slug: string) {
         description="Гамма-распределение n(r) = a·r^α·exp(−b·r). St (слоистые, r_m = 5 мкм), Cu (кучевые, r_m = 10 мкм), Cb (кучево-дождевые, r_m = 18 мкм). Ось X — радиус капли в мкм."
       >
         <CloudSpectrumChart />
+      </Chart>
+    );
+  }
+  if (slug === "circulation") {
+    return (
+      <Chart
+        title="Зональная скорость ветра по широте (приземный уровень)"
+        description="Трёхъячейковая модель: пассаты (0–30°, восточные), западный перенос (30–60°), полярные восточные (60–90°). Вертикальные линии — границы ячеек: ±30° (Хэдли/Феррель), ±60° (Феррель/полярная)."
+      >
+        <CirculationChart />
       </Chart>
     );
   }

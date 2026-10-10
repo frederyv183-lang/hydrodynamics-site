@@ -13,6 +13,7 @@ import { phaseTransitions } from "./phase-transitions";
 import { turbulence } from "./turbulence";
 import { optics } from "./optics";
 import { clouds } from "./clouds";
+import { circulation } from "./circulation";
 
 export type AtmosphereFormula = {
   slug: string;
@@ -55,6 +56,7 @@ export const sections: AtmosphereSection[] = [
   turbulence,
   optics,
   clouds,
+  circulation,
 ].sort((a, b) => a.order - b.order);
 
 export function getSection(slug: string): AtmosphereSection | undefined {
