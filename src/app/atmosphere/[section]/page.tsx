@@ -10,6 +10,7 @@ import RadiationBalanceChart from "@/components/charts/RadiationBalanceChart";
 import GeostrophicWindChart from "@/components/charts/GeostrophicWindChart";
 import BoundaryLayerChart from "@/components/charts/BoundaryLayerChart";
 import PhaseTransitionsChart from "@/components/charts/PhaseTransitionsChart";
+import TurbulenceChart from "@/components/charts/TurbulenceChart";
 import { getSection, sections } from "@/data/atmosphere";
 
 type Params = { params: { section: string } };
@@ -91,6 +92,15 @@ function getChart(slug: string) {
         description="Формула Магнуса для E_s(T). T от −20 до +40 °C. Над водой (сплошная) и надо льдом (пунктир). Разница максимальна при T ≈ −12 °C."
       >
         <PhaseTransitionsChart />
+      </Chart>
+    );
+  }  if (slug === "turbulence") {
+    return (
+      <Chart
+        title="Коэффициент турбулентности K(z) при разных стратификациях"
+        description="u* = 0.3 м/с, |L| = 50 м. Неустойчивая (L = −50 м), нейтральная, устойчивая (L = +50 м). Ось Y — высота в лог. масштабе (0.1–100 м)."
+      >
+        <TurbulenceChart />
       </Chart>
     );
   }  return null;
