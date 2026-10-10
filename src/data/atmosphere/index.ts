@@ -1,4 +1,4 @@
-import { introduction } from "./introduction";
+﻿import { introduction } from "./introduction";
 import { composition } from "./composition";
 import { statics } from "./statics";
 import { structure } from "./structure";
@@ -14,6 +14,9 @@ import { turbulence } from "./turbulence";
 import { optics } from "./optics";
 import { clouds } from "./clouds";
 import { circulation } from "./circulation";
+import { equations } from "./equations";
+import { coordinates } from "./coordinates";
+import { projections } from "./projections";
 
 export type AtmosphereFormula = {
   slug: string;
@@ -57,6 +60,9 @@ export const sections: AtmosphereSection[] = [
   optics,
   clouds,
   circulation,
+  equations,
+  coordinates,
+  projections,
 ].sort((a, b) => a.order - b.order);
 
 export function getSection(slug: string): AtmosphereSection | undefined {
@@ -72,4 +78,3 @@ export function getAllFormulas(): (AtmosphereFormula & { sectionSlug: string; se
     }))
   );
 }
-

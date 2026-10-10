@@ -1,4 +1,7 @@
 import Card from "@/components/ui/Card";
+import { coriolisCalculator } from "@/data/calculators/coriolis";
+import { sigmaCalculator } from "@/data/calculators/sigma";
+import { mapScaleCalculator } from "@/data/calculators/mapscale";
 
 const calculators = [
   {
@@ -97,7 +100,10 @@ const calculators = [
     description:
       "Ширина тропической ячейки циркуляции по формуле Хельда–Хоу: контраст температур экватор-полюс, высота тропопаузы, средняя температура.",
     badge: "Циркуляция"
-  }
+  },
+  coriolisCalculator,
+  sigmaCalculator,
+  mapScaleCalculator,
 ];
 
 export const metadata = {
