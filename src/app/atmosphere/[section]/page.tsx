@@ -1,4 +1,4 @@
-﻿import { notFound } from "next/navigation";
+import { notFound } from "next/navigation";
 import Link from "next/link";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import Formula from "@/components/ui/Formula";
@@ -6,6 +6,8 @@ import Chart from "@/components/ui/Chart";
 import TemperatureProfileChart from "@/components/charts/TemperatureProfileChart";
 import PlanckChart from "@/components/charts/PlanckChart";
 import ExtinctionChart from "@/components/charts/ExtinctionChart";
+import RadiationBalanceChart from "@/components/charts/RadiationBalanceChart";
+import GeostrophicWindChart from "@/components/charts/GeostrophicWindChart";
 import { getSection, sections } from "@/data/atmosphere";
 
 type Params = { params: { section: string } };
@@ -47,6 +49,26 @@ function getChart(slug: string) {
         description="Относительный поток F/F₀ = p^m в зависимости от высоты Солнца для трёх коэффициентов прозрачности p."
       >
         <ExtinctionChart />
+      </Chart>
+    );
+  }
+  if (slug === "radiation-balance") {
+    return (
+      <Chart
+        title="Радиационный баланс по широтным зонам"
+        description="Годовые значения. Система Земля-атмосфера отрицательна на всех широтах, поверхность положительна в низких широтах и отрицательна в высоких."
+      >
+        <RadiationBalanceChart />
+      </Chart>
+    );
+  }
+  if (slug === "dynamics") {
+    return (
+      <Chart
+        title="Зависимость скорости геострофического ветра от широты"
+        description="При фиксированном градиенте давления (1 гПа/100 км) и плотности воздуха (1.3 кг/м³). На экваторе (f = 0) геострофический баланс невозможен."
+      >
+        <GeostrophicWindChart />
       </Chart>
     );
   }

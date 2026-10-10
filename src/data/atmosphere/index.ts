@@ -1,4 +1,4 @@
-﻿import { introduction } from "./introduction";
+import { introduction } from "./introduction";
 import { composition } from "./composition";
 import { statics } from "./statics";
 import { structure } from "./structure";
@@ -7,6 +7,7 @@ import { extinction } from "./extinction";
 import { earthRadiation } from "./earth-radiation";
 import { radiationBalance } from "./radiation-balance";
 import { thermodynamics } from "./thermodynamics";
+import { dynamics } from "./dynamics";
 
 export type AtmosphereFormula = {
   slug: string;
@@ -42,7 +43,8 @@ export const sections: AtmosphereSection[] = [
   extinction,
   earthRadiation,
   radiationBalance,
-  thermodynamics
+  thermodynamics,
+  dynamics,
 ].sort((a, b) => a.order - b.order);
 
 export function getSection(slug: string): AtmosphereSection | undefined {
@@ -58,3 +60,4 @@ export function getAllFormulas(): (AtmosphereFormula & { sectionSlug: string; se
     }))
   );
 }
+

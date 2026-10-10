@@ -1,4 +1,4 @@
-﻿import Card from "@/components/ui/Card";
+import Card from "@/components/ui/Card";
 
 const calculators = [
   {
@@ -41,6 +41,20 @@ const calculators = [
     description:
       "Закон Ламберта-Бугера: поток на поверхности F = F₀·p^m, оптическая толщина τ, масса атмосферы m.",
     badge: "Атмосфера"
+  },
+  {
+    slug: "potential-temp",
+    title: "Потенциальная температура",
+    description:
+      "θ = T (1000/p)^0.286 и сухоадиабатический градиент γ_a ≈ 0.98 °C/100 м.",
+    badge: "Атмосфера"
+  },
+  {
+    slug: "geostrophic-wind",
+    title: "Геострофический ветер",
+    description:
+      "Расчёт скорости и направления геострофического ветра по градиенту давления и широте места.",
+    badge: "Динамика"
   }
 ];
 
