@@ -15,6 +15,7 @@ import OpticsChart from "@/components/charts/OpticsChart";
 import CloudSpectrumChart from "@/components/charts/CloudSpectrumChart";
 import CirculationChart from "@/components/charts/CirculationChart";
 import { getSection, sections } from "@/data/atmosphere";
+import { slugify } from "@/lib/slugify";
 
 type Params = { params: { section: string } };
 
@@ -175,7 +176,11 @@ export default function AtmosphereSectionPage({ params }: Params) {
           </h2>
           <dl className="mt-4 divide-y divide-slate-200 rounded-xl border border-slate-200 bg-white">
             {s.concepts.map((c) => (
-              <div key={c.term} className="px-5 py-4">
+              <div
+                key={c.term}
+                id={slugify(c.term)}
+                className="scroll-mt-24 px-5 py-4"
+              >
                 <dt className="font-semibold text-slate-900">{c.term}</dt>
                 <dd className="mt-1 text-sm text-slate-700">{c.definition}</dd>
               </div>
@@ -192,7 +197,8 @@ export default function AtmosphereSectionPage({ params }: Params) {
           {s.formulas.map((f) => (
             <div
               key={f.slug}
-              className="rounded-xl border border-slate-200 bg-white p-6"
+              id={f.slug}
+              className="scroll-mt-24 rounded-xl border border-slate-200 bg-white p-6"
             >
               <h3 className="text-lg font-semibold text-slate-900">
                 {f.title}
