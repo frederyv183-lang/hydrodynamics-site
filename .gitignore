@@ -50,3 +50,7 @@ setup.bat
 # Скрипты — временные запуски (сами шаги в scripts/ оставляем)
 /tmp/
 /temp/
+
+# Serwist
+public/sw*
+public/swe-worker*
