@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { methods } from "@/data/methods";
-import Card from "@/components/ui/Card";
 import Formula from "@/components/ui/Formula";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 
@@ -25,10 +24,7 @@ export function generateMetadata({ params }: { params: Params }): Metadata {
 
 export default function MethodPage({ params }: { params: Params }) {
   const method = methods.find((m) => m.slug === params.slug);
-
-  if (!method) {
-    notFound();
-  }
+  if (!method) notFound();
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl">
@@ -78,10 +74,13 @@ export default function MethodPage({ params }: { params: Params }) {
           <h2 className="text-2xl font-semibold mb-4">{"\u0424\u043e\u0440\u043c\u0443\u043b\u044b"}</h2>
           <div className="space-y-4">
             {method.formulas.map((formula, i) => (
-              <Card key={i} className="p-5">
+              <div
+                key={i}
+                className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm"
+              >
                 <h3 className="text-lg font-semibold mb-3">{formula.title}</h3>
                 <div className="my-4 overflow-x-auto">
-                  <Formula latex={formula.latex} displayMode={true} />
+                  <Formula latex={formula.latex} display={true} />
                 </div>
                 {formula.about && (
                   <p className="text-sm text-muted-foreground mb-3">{formula.about}</p>
@@ -100,7 +99,7 @@ export default function MethodPage({ params }: { params: Params }) {
                     </ul>
                   </div>
                 )}
-              </Card>
+              </div>
             ))}
           </div>
         </section>
@@ -109,7 +108,7 @@ export default function MethodPage({ params }: { params: Params }) {
       {method.convergence && (
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-3">{"\u041e\u0446\u0435\u043d\u043a\u0430 \u0442\u043e\u0447\u043d\u043e\u0441\u0442\u0438"}</h2>
-          <Card className="p-5 space-y-3">
+          <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm space-y-3">
             <div>
               <span className="text-sm font-medium">{"\u041f\u043e\u0440\u044f\u0434\u043e\u043a \u0442\u043e\u0447\u043d\u043e\u0441\u0442\u0438: "}</span>
               <span className="font-mono">{method.convergence.order}</span>
@@ -126,7 +125,7 @@ export default function MethodPage({ params }: { params: Params }) {
                 <span className="text-muted-foreground">{method.convergence.error}</span>
               </div>
             )}
-          </Card>
+          </div>
         </section>
       )}
 
@@ -149,10 +148,7 @@ export default function MethodPage({ params }: { params: Params }) {
       )}
 
       <div className="mt-10 pt-6 border-t border-border">
-        <Link
-          href="/methods"
-          className="text-sm text-primary hover:underline"
-        >
+        <Link href="/methods" className="text-sm text-primary hover:underline">
           {"\u2190 \u041d\u0430\u0437\u0430\u0434 \u043a \u0441\u043f\u0438\u0441\u043a\u0443 \u043c\u0435\u0442\u043e\u0434\u043e\u0432"}
         </Link>
       </div>
