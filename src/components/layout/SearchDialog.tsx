@@ -6,12 +6,13 @@ import { Command } from "cmdk";
 import { search } from "@/data/searchIndex";
 
 const KIND_LABEL: Record<string, string> = {
-  section: "Раздел",
-  concept: "Понятие",
-  formula: "Формула",
-  "reference-formula": "Формула",
-  model: "Модель",
-  calculator: "Калькулятор"
+  section: "\u0420\u0430\u0437\u0434\u0435\u043b",
+  concept: "\u041f\u043e\u043d\u044f\u0442\u0438\u0435",
+  formula: "\u0424\u043e\u0440\u043c\u0443\u043b\u0430",
+  "reference-formula": "\u0424\u043e\u0440\u043c\u0443\u043b\u0430",
+  model: "\u041c\u043e\u0434\u0435\u043b\u044c",
+  calculator: "\u041a\u0430\u043b\u044c\u043a\u0443\u043b\u044f\u0442\u043e\u0440",
+  method: "\u041c\u0435\u0442\u043e\u0434"
 };
 
 export default function SearchDialog() {

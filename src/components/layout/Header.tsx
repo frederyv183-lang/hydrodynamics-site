@@ -4,6 +4,7 @@ import SearchDialog, { SearchButton } from "./SearchDialog";
 const nav = [
   { href: "/formulas", label: "Формулы" },
   { href: "/models", label: "Модели" },
+  { href: "/methods", label: "\u041c\u0435\u0442\u043e\u0434\u044b" },
   { href: "/calculators", label: "Калькуляторы" },
   { href: "/atmosphere", label: "Атмосфера и океан" },
   { href: "/about", label: "О проекте" }

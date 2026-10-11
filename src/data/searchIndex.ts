@@ -2,6 +2,7 @@ import { sections } from "./atmosphere";
 import { formulas as referenceFormulas } from "./formulas";
 import { models } from "./models";
 import { calculators } from "./calculatorsList";
+import { methods } from "./methods";
 import { translit } from "@/lib/translit";
 import { slugify } from "@/lib/slugify";
 
@@ -11,7 +12,8 @@ export type SearchKind =
   | "formula"
   | "reference-formula"
   | "model"
-  | "calculator";
+  | "calculator"
+  | "method";
 
 export type SearchEntry = {
   id: string;
@@ -97,6 +99,17 @@ export function buildSearchIndex(): SearchEntry[] {
       group: "Калькуляторы",
       href: `/calculators/${c.slug}`,
       haystack: makeHaystack([c.title, c.description, c.badge])
+    });
+  }
+
+  for (const m of methods) {
+    entries.push({
+      id: `method:${m.slug}`,
+      title: m.title,
+      kind: "method",
+      group: "\u0427\u0438\u0441\u043b\u0435\u043d\u043d\u044b\u0435 \u043c\u0435\u0442\u043e\u0434\u044b",
+      href: `/methods/${m.slug}`,
+      haystack: makeHaystack([m.title, m.short, m.about, m.category])
     });
   }
 
