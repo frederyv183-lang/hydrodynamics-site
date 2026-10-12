@@ -54,3 +54,7 @@ setup.bat
 # Serwist
 public/sw*
 public/swe-worker*
+
+*.ps1
+
+*.bak

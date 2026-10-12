@@ -91,7 +91,7 @@ export default function MethodPage({ params }: { params: Params }) {
                     <ul className="text-sm space-y-1">
                       {formula.variables.map((v, j) => (
                         <li key={j}>
-                          <span className="font-mono font-medium">{v.symbol}</span>
+                          <span className="font-mono font-medium"><Formula latex={v.symbol} /></span>
                           {" \u2014 "}
                           <span className="text-muted-foreground">{v.meaning}</span>
                         </li>
