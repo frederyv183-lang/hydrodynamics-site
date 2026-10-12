@@ -16,8 +16,33 @@ export type Model = {
   assumptions?: string[];
   /** Краткое описание */
   about?: string;
-  /** Где применяется */
+  /** Where used */
   applications?: string[];
+  /** Data source */
+  source?: string;
+  /** Algorithm / numerical scheme */
+  algorithm?: string[];
+  /** Resolution and forecast horizon */
+  convergence?: {
+    order?: string;
+    stability?: string;
+    error?: string;
+  };
+  /** Numerics (dynamical core) */
+  numerics?: {
+    grid?: string;
+    advection?: string;
+    timeStepping?: string;
+    solver?: string;
+  };
+  /** Subgrid parameterizations */
+  parameterizations?: {
+    convection?: string;
+    turbulence?: string;
+    microphysics?: string;
+    radiation?: string;
+    landSurface?: string;
+  };
 };
 
 export const models: Model[] = [
@@ -1219,4 +1244,5 @@ export const models: Model[] = [
       "\u0413\u043e\u0440\u043e\u0434\u0441\u043a\u0438\u0435 \u0443\u0441\u043b\u043e\u0432\u0438\u044f, \u0442\u0443\u043c\u0430\u043d"
     ],
     source: "UK Met Office UKV documentation"
-  },];
+  }
+];
