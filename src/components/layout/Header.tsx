@@ -6,6 +6,8 @@ const nav = [
   { href: "/models", label: "Модели" },
   { href: "/methods", label: "\u041c\u0435\u0442\u043e\u0434\u044b" },
   { href: "/calculators", label: "Калькуляторы" },
+  { href: "/glossary", label: "Глоссарий" },
+  { href: "/symbols", label: "Сокращения" },
   { href: "/atmosphere", label: "Атмосфера и океан" },
   { href: "/about", label: "О проекте" }
 ];
