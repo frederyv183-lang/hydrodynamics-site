@@ -909,6 +909,19 @@ export const models: Model[] = [
       stability: "\u0413\u043e\u0440\u0438\u0437\u043e\u043d\u0442: 10\u201315 \u0434\u043d\u0435\u0439",
       error: "\u0426\u0438\u043a\u043b: 2 \u0440\u0430\u0437\u0430 \u0432 \u0441\u0443\u0442\u043a\u0438 (00, 12 UTC)"
     },
+    numerics: {
+      grid: "Octahedral reduced Gaussian grid O1280",
+      advection: "Semi-Lagrangian (SL), 2TL",
+      timeStepping: "Semi-implicit, 2TL",
+      solver: "3D Helmholtz (SOR / direct)"
+    },
+    parameterizations: {
+      convection: "Tiedtke mass-flux scheme",
+      turbulence: "EDMF (Eddy-Diffusivity Mass-Flux)",
+      microphysics: "Bulk single-moment (Forbes et al., 2010)",
+      radiation: "RRTM (Mlawer, 1997)",
+      landSurface: "HTESSEL"
+    },
     applications: [
       "\u0421\u0440\u0435\u0434\u043d\u0435\u0441\u0440\u043e\u0447\u043d\u044b\u0439 \u043f\u0440\u043e\u0433\u043d\u043e\u0437 \u043f\u043e\u0433\u043e\u0434\u044b",
       "\u0410\u043d\u0441\u0430\u043c\u0431\u043b\u0435\u0432\u044b\u0435 \u043f\u0440\u043e\u0433\u043d\u043e\u0437\u044b (ENS)",
@@ -933,6 +946,19 @@ export const models: Model[] = [
       stability: "\u0413\u043e\u0440\u0438\u0437\u043e\u043d\u0442: 15 \u0434\u043d\u0435\u0439",
       error: "\u0426\u0438\u043a\u043b: 2 \u0440\u0430\u0437\u0430 \u0432 \u0441\u0443\u0442\u043a\u0438"
     },
+    numerics: {
+      grid: "Octahedral reduced Gaussian grid O640",
+      advection: "Semi-Lagrangian (SL), 2TL",
+      timeStepping: "Semi-implicit, 2TL",
+      solver: "3D Helmholtz"
+    },
+    parameterizations: {
+      convection: "Tiedtke mass-flux scheme",
+      turbulence: "EDMF (Eddy-Diffusivity Mass-Flux)",
+      microphysics: "Bulk single-moment",
+      radiation: "RRTM",
+      landSurface: "HTESSEL"
+    },
     applications: [
       "\u0424\u043e\u043d\u043e\u0432\u044b\u0435 \u043f\u0440\u043e\u0433\u043d\u043e\u0437\u044b",
       "\u0413\u0440\u0430\u043d\u0438\u0447\u043d\u044b\u0435 \u0443\u0441\u043b\u043e\u0432\u0438\u044f",
@@ -956,6 +982,19 @@ export const models: Model[] = [
       order: "\u0420\u0430\u0437\u0440\u0435\u0448\u0435\u043d\u0438\u0435: 0.25\u00b0 (~25 \u043a\u043c)",
       stability: "\u0413\u043e\u0440\u0438\u0437\u043e\u043d\u0442: 15 \u0434\u043d\u0435\u0439",
       error: "\u0426\u0438\u043a\u043b: 2 \u0440\u0430\u0437\u0430 \u0432 \u0441\u0443\u0442\u043a\u0438"
+    },
+    numerics: {
+      grid: "Graph neural network (GNN) encoder / decoder",
+      advection: "Learned from ERA5 (data-driven)",
+      timeStepping: "Transformer processor, 6h steps",
+      solver: "No classical solver (ML surrogate)"
+    },
+    parameterizations: {
+      convection: "Implicit (learned from reanalysis)",
+      turbulence: "Implicit (learned from reanalysis)",
+      microphysics: "Implicit (learned from reanalysis)",
+      radiation: "Implicit (learned from reanalysis)",
+      landSurface: "Implicit (learned from reanalysis)"
     },
     applications: [
       "\u0411\u044b\u0441\u0442\u0440\u044b\u0435 \u0433\u043b\u043e\u0431\u0430\u043b\u044c\u043d\u044b\u0435 \u043f\u0440\u043e\u0433\u043d\u043e\u0437\u044b",
@@ -982,6 +1021,19 @@ export const models: Model[] = [
       stability: "\u0413\u043e\u0440\u0438\u0437\u043e\u043d\u0442: 7\u201310 \u0434\u043d\u0435\u0439",
       error: "\u0426\u0438\u043a\u043b: 4 \u0440\u0430\u0437\u0430 \u0432 \u0441\u0443\u0442\u043a\u0438"
     },
+    numerics: {
+      grid: "Icosahedral-triangular R3B7 (~13 km)",
+      advection: "Finite-volume Miura scheme (tracers)",
+      timeStepping: "Predictor-corrector, 2TL",
+      solver: "Implicit vertical sound waves"
+    },
+    parameterizations: {
+      convection: "Mass-flux (Bechtold et al.)",
+      turbulence: "1D TKE scheme",
+      microphysics: "Single-moment bulk",
+      radiation: "PSrad (RRTM-based)",
+      landSurface: "TERRA (multi-layer soil)"
+    },
     applications: [
       "\u0413\u043b\u043e\u0431\u0430\u043b\u044c\u043d\u044b\u0439 \u043f\u0440\u043e\u0433\u043d\u043e\u0437 \u043f\u043e\u0433\u043e\u0434\u044b",
       "\u041e\u0441\u043d\u043e\u0432\u0430 \u0434\u043b\u044f \u0440\u0435\u0433\u0438\u043e\u043d\u0430\u043b\u044c\u043d\u044b\u0445 \u043c\u043e\u0434\u0435\u043b\u0435\u0439",
@@ -1006,6 +1058,19 @@ export const models: Model[] = [
       stability: "\u0413\u043e\u0440\u0438\u0437\u043e\u043d\u0442: 5 \u0434\u043d\u0435\u0439 (120 \u0447)",
       error: "\u0426\u0438\u043a\u043b: 4 \u0440\u0430\u0437\u0430 \u0432 \u0441\u0443\u0442\u043a\u0438"
     },
+    numerics: {
+      grid: "Icosahedral-triangular R3B8 (~6.5 km)",
+      advection: "Finite-volume Miura scheme",
+      timeStepping: "Predictor-corrector, 2TL",
+      solver: "Implicit vertical sound waves"
+    },
+    parameterizations: {
+      convection: "Mass-flux (Bechtold et al.)",
+      turbulence: "1D TKE scheme",
+      microphysics: "Single-moment bulk",
+      radiation: "PSrad",
+      landSurface: "TERRA"
+    },
     applications: [
       "\u0420\u0435\u0433\u0438\u043e\u043d\u0430\u043b\u044c\u043d\u044b\u0439 \u043f\u0440\u043e\u0433\u043d\u043e\u0437 \u0434\u043b\u044f \u0415\u0432\u0440\u043e\u043f\u044b",
       "\u0413\u0440\u0430\u043d\u0438\u0447\u043d\u044b\u0435 \u0443\u0441\u043b\u043e\u0432\u0438\u044f \u0434\u043b\u044f ICON-D2"
@@ -1028,6 +1093,19 @@ export const models: Model[] = [
       order: "\u0420\u0430\u0437\u0440\u0435\u0448\u0435\u043d\u0438\u0435: 2.2 \u043a\u043c",
       stability: "\u0413\u043e\u0440\u0438\u0437\u043e\u043d\u0442: 48 \u0447",
       error: "\u0426\u0438\u043a\u043b: 8 \u0440\u0430\u0437 \u0432 \u0441\u0443\u0442\u043a\u0438"
+    },
+    numerics: {
+      grid: "Icosahedral-triangular R3B9 (~2.2 km)",
+      advection: "Finite-volume Miura scheme",
+      timeStepping: "Predictor-corrector, 2TL",
+      solver: "Implicit vertical sound waves"
+    },
+    parameterizations: {
+      convection: "Shallow convection only (deep resolved)",
+      turbulence: "1D TKE scheme",
+      microphysics: "Single-moment bulk",
+      radiation: "PSrad",
+      landSurface: "TERRA"
     },
     applications: [
       "\u0421\u0432\u0435\u0440\u0445\u043a\u0440\u0430\u0442\u043a\u043e\u0441\u0440\u043e\u0447\u043d\u044b\u0439 \u043f\u0440\u043e\u0433\u043d\u043e\u0437",
@@ -1052,6 +1130,19 @@ export const models: Model[] = [
       order: "\u0420\u0430\u0437\u0440\u0435\u0448\u0435\u043d\u0438\u0435: 13 \u043a\u043c (C768)",
       stability: "\u0413\u043e\u0440\u0438\u0437\u043e\u043d\u0442: 16 \u0434\u043d\u0435\u0439",
       error: "\u0426\u0438\u043a\u043b: 4 \u0440\u0430\u0437\u0430 \u0432 \u0441\u0443\u0442\u043a\u0438"
+    },
+    numerics: {
+      grid: "FV3 cubed-sphere, C768 (~13 km)",
+      advection: "Finite-volume, monotone (Lagrangian vertical)",
+      timeStepping: "Semi-implicit, 2TL",
+      solver: "3D Helmholtz"
+    },
+    parameterizations: {
+      convection: "SAS (Simplified Arakawa-Schubert)",
+      turbulence: "K-EDMF (K-Profile + Mass-Flux)",
+      microphysics: "Thompson microphysics",
+      radiation: "RRTMG",
+      landSurface: "NoahMP LSM"
     },
     applications: [
       "\u041e\u043f\u0435\u0440\u0430\u0442\u0438\u0432\u043d\u044b\u0439 \u0433\u043b\u043e\u0431\u0430\u043b\u044c\u043d\u044b\u0439 \u043f\u0440\u043e\u0433\u043d\u043e\u0437",
@@ -1078,6 +1169,19 @@ export const models: Model[] = [
       stability: "\u0413\u043e\u0440\u0438\u0437\u043e\u043d\u0442: 18\u201336 \u0447",
       error: "\u0426\u0438\u043a\u043b: \u0435\u0436\u0435\u0447\u0430\u0441\u043d\u043e"
     },
+    numerics: {
+      grid: "WRF-ARW 3.9, 3 km, hybrid sigma-pressure",
+      advection: "Runge-Kutta 3rd order, 5th-order advection",
+      timeStepping: "RK3, acoustic sub-stepping",
+      solver: "3D Helmholtz"
+    },
+    parameterizations: {
+      convection: "Shallow only (deep resolved)",
+      turbulence: "MYNN 2.5 (Mellor-Yamada Nakanishi-Niino)",
+      microphysics: "Thompson microphysics",
+      radiation: "RRTMG",
+      landSurface: "RUC LSM"
+    },
     applications: [
       "\u041a\u0440\u0430\u0442\u043a\u043e\u0441\u0440\u043e\u0447\u043d\u044b\u0439 \u043f\u0440\u043e\u0433\u043d\u043e\u0437 \u043e\u043f\u0430\u0441\u043d\u044b\u0445 \u044f\u0432\u043b\u0435\u043d\u0438\u0439",
       "\u0410\u0432\u0438\u0430\u0446\u0438\u044f, \u044d\u043d\u0435\u0440\u0433\u0435\u0442\u0438\u043a\u0430, \u043f\u043e\u0436\u0430\u0440\u044b"
@@ -1100,6 +1204,19 @@ export const models: Model[] = [
       order: "\u0420\u0430\u0437\u0440\u0435\u0448\u0435\u043d\u0438\u0435: 7.5\u201336 \u043a\u043c (\u043f\u0435\u0440\u0435\u043c\u0435\u043d\u043d\u043e\u0435)",
       stability: "\u0413\u043e\u0440\u0438\u0437\u043e\u043d\u0442: 4 \u0434\u043d\u044f (102 \u0447)",
       error: "\u0426\u0438\u043a\u043b: 4 \u0440\u0430\u0437\u0430 \u0432 \u0441\u0443\u0442\u043a\u0438"
+    },
+    numerics: {
+      grid: "Stretched spectral (Tl1798c2.2), 5 km over W. Europe",
+      advection: "Semi-Lagrangian",
+      timeStepping: "Semi-implicit",
+      solver: "3D Helmholtz"
+    },
+    parameterizations: {
+      convection: "PCMT (Prognostic Condensates Microphysics Transport)",
+      turbulence: "1.5-order prognostic TKE",
+      microphysics: "Bulk 4-variable (Lopez, 2002)",
+      radiation: "RRTM + SW6 (Fouquart)",
+      landSurface: "ISBA (Interaction Soil-Biosphere-Atmosphere)"
     },
     applications: [
       "\u0413\u043b\u043e\u0431\u0430\u043b\u044c\u043d\u044b\u0439 \u043f\u0440\u043e\u0433\u043d\u043e\u0437",
@@ -1126,6 +1243,19 @@ export const models: Model[] = [
       stability: "\u0413\u043e\u0440\u0438\u0437\u043e\u043d\u0442: 48 \u0447",
       error: "\u0426\u0438\u043a\u043b: 5 \u0440\u0430\u0437 \u0432 \u0441\u0443\u0442\u043a\u0438"
     },
+    numerics: {
+      grid: "ALADIN non-hydrostatic, 1.3 km",
+      advection: "Semi-Lagrangian",
+      timeStepping: "Semi-implicit",
+      solver: "3D Helmholtz"
+    },
+    parameterizations: {
+      convection: "No parameterization (explicit)",
+      turbulence: "1.5-order prognostic TKE (PMMC09)",
+      microphysics: "Bulk 5-variable (Pinty & Jabouille)",
+      radiation: "RRTM + SW6",
+      landSurface: "SURFEX (ISBA tiles)"
+    },
     applications: [
       "\u041a\u0440\u0430\u0442\u043a\u043e\u0441\u0440\u043e\u0447\u043d\u044b\u0439 \u043f\u0440\u043e\u0433\u043d\u043e\u0437 \u043e\u043f\u0430\u0441\u043d\u044b\u0445 \u044f\u0432\u043b\u0435\u043d\u0438\u0439 (\u0433\u0440\u043e\u0437\u044b, \u043b\u0438\u0432\u043d\u0438)",
       "\u0413\u043e\u0440\u043e\u0434\u0441\u043a\u043e\u0439 \u043e\u0441\u0442\u0440\u043e\u0432 \u0442\u0435\u043f\u043b\u0430, \u0442\u0443\u043c\u0430\u043d"
@@ -1148,6 +1278,19 @@ export const models: Model[] = [
       order: "\u0420\u0430\u0437\u0440\u0435\u0448\u0435\u043d\u0438\u0435: 25 \u043a\u043c",
       stability: "\u0413\u043e\u0440\u0438\u0437\u043e\u043d\u0442: 10\u201316 \u0434\u043d\u0435\u0439",
       error: "\u0426\u0438\u043a\u043b: 2 \u0440\u0430\u0437\u0430 \u0432 \u0441\u0443\u0442\u043a\u0438"
+    },
+    numerics: {
+      grid: "GEM, Yin-Yang grid (~25 km)",
+      advection: "Semi-Lagrangian",
+      timeStepping: "Semi-implicit, 2TL",
+      solver: "3D Helmholtz"
+    },
+    parameterizations: {
+      convection: "Kain-Fritsch (deep) + Kuo transient (shallow)",
+      turbulence: "TKE-based (Benoit et al., 1989)",
+      microphysics: "Sundqvist condensation scheme",
+      radiation: "RRTMG",
+      landSurface: "CLASS / SVS"
     },
     applications: [
       "\u0413\u043b\u043e\u0431\u0430\u043b\u044c\u043d\u044b\u0439 \u043f\u0440\u043e\u0433\u043d\u043e\u0437",
@@ -1172,6 +1315,19 @@ export const models: Model[] = [
       stability: "\u0413\u043e\u0440\u0438\u0437\u043e\u043d\u0442: 3.5 \u0434\u043d\u044f",
       error: "\u0426\u0438\u043a\u043b: 4 \u0440\u0430\u0437\u0430 \u0432 \u0441\u0443\u0442\u043a\u0438"
     },
+    numerics: {
+      grid: "GEM regional (~10 km)",
+      advection: "Semi-Lagrangian",
+      timeStepping: "Semi-implicit, 2TL",
+      solver: "3D Helmholtz"
+    },
+    parameterizations: {
+      convection: "Kain-Fritsch",
+      turbulence: "TKE-based",
+      microphysics: "Sundqvist",
+      radiation: "RRTMG",
+      landSurface: "CLASS / SVS"
+    },
     applications: [
       "\u0420\u0435\u0433\u0438\u043e\u043d\u0430\u043b\u044c\u043d\u044b\u0439 \u043f\u0440\u043e\u0433\u043d\u043e\u0437 \u0434\u043b\u044f \u0421\u0435\u0432\u0435\u0440\u043d\u043e\u0439 \u0410\u043c\u0435\u0440\u0438\u043a\u0438",
       "\u0413\u0440\u0430\u043d\u0438\u0447\u043d\u044b\u0435 \u0443\u0441\u043b\u043e\u0432\u0438\u044f \u0434\u043b\u044f HRDPS"
@@ -1193,6 +1349,19 @@ export const models: Model[] = [
       order: "\u0420\u0430\u0437\u0440\u0435\u0448\u0435\u043d\u0438\u0435: 2.5 \u043a\u043c",
       stability: "\u0413\u043e\u0440\u0438\u0437\u043e\u043d\u0442: 48 \u0447",
       error: "\u0426\u0438\u043a\u043b: 4 \u0440\u0430\u0437\u0430 \u0432 \u0441\u0443\u0442\u043a\u0438"
+    },
+    numerics: {
+      grid: "GEM high-resolution (~2.5 km)",
+      advection: "Semi-Lagrangian",
+      timeStepping: "Semi-implicit, 2TL",
+      solver: "3D Helmholtz"
+    },
+    parameterizations: {
+      convection: "Shallow only (deep resolved)",
+      turbulence: "TKE-based",
+      microphysics: "Sundqvist",
+      radiation: "RRTMG",
+      landSurface: "CLASS / SVS"
     },
     applications: [
       "\u0412\u044b\u0441\u043e\u043a\u043e\u0434\u0435\u0442\u0430\u043b\u044c\u043d\u044b\u0439 \u043a\u0440\u0430\u0442\u043a\u043e\u0441\u0440\u043e\u0447\u043d\u044b\u0439 \u043f\u0440\u043e\u0433\u043d\u043e\u0437",
@@ -1217,6 +1386,19 @@ export const models: Model[] = [
       stability: "\u0413\u043e\u0440\u0438\u0437\u043e\u043d\u0442: 7 \u0434\u043d\u0435\u0439",
       error: "\u0426\u0438\u043a\u043b: 4 \u0440\u0430\u0437\u0430 \u0432 \u0441\u0443\u0442\u043a\u0438"
     },
+    numerics: {
+      grid: "ENDGame, latitude-longitude C-grid (N768, ~17 km)",
+      advection: "2TL Semi-Lagrangian",
+      timeStepping: "Semi-implicit",
+      solver: "3D Helmholtz (GCR(k))"
+    },
+    parameterizations: {
+      convection: "Mass-flux (Gregory-Rowntree)",
+      turbulence: "K-profile + non-local mixing",
+      microphysics: "Single-moment bulk",
+      radiation: "SOCRATES (two-stream)",
+      landSurface: "JULES (tiled, 4 soil layers)"
+    },
     applications: [
       "\u0413\u043b\u043e\u0431\u0430\u043b\u044c\u043d\u044b\u0439 \u043f\u0440\u043e\u0433\u043d\u043e\u0437",
       "\u041a\u043b\u0438\u043c\u0430\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u0435 \u043c\u043e\u0434\u0435\u043b\u0438 (HadGEM)"
@@ -1238,6 +1420,19 @@ export const models: Model[] = [
       order: "\u0420\u0430\u0437\u0440\u0435\u0448\u0435\u043d\u0438\u0435: ~1.5 \u043a\u043c",
       stability: "\u0413\u043e\u0440\u0438\u0437\u043e\u043d\u0442: 36 \u0447",
       error: "\u0426\u0438\u043a\u043b: 4 \u0440\u0430\u0437\u0430 \u0432 \u0441\u0443\u0442\u043a\u0438"
+    },
+    numerics: {
+      grid: "Variable-resolution UM, rotated lat-lon (~1.5 km inner)",
+      advection: "2TL Semi-Lagrangian",
+      timeStepping: "Semi-implicit",
+      solver: "3D Helmholtz (GCR(k))"
+    },
+    parameterizations: {
+      convection: "Shallow only (deep resolved)",
+      turbulence: "K-profile + non-local mixing (RAL3)",
+      microphysics: "CASIM double-moment",
+      radiation: "SOCRATES",
+      landSurface: "JULES (tiled)"
     },
     applications: [
       "\u041a\u0440\u0430\u0442\u043a\u043e\u0441\u0440\u043e\u0447\u043d\u044b\u0439 \u0440\u0435\u0433\u0438\u043e\u043d\u0430\u043b\u044c\u043d\u044b\u0439 \u043f\u0440\u043e\u0433\u043d\u043e\u0437",
