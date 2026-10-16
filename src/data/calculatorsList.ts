@@ -1,6 +1,29 @@
-import { coriolisCalculator } from "@/data/calculators/coriolis";
+﻿import { coriolisCalculator } from "@/data/calculators/coriolis";
 import { sigmaCalculator } from "@/data/calculators/sigma";
 import { mapScaleCalculator } from "@/data/calculators/mapscale";
+import { takeoffSpeedCalculator } from "@/data/calculators/takeoff-speed";
+import { minTempForecastCalculator } from "@/data/calculators/min-temp-forecast";
+import { richardsonCalculator } from "@/data/calculators/richardson";
+import { icingIntensityCalculator } from "@/data/calculators/icing-intensity";
+import { kineticHeatingCalculator } from "@/data/calculators/kinetic-heating";
+import { aircraftCeilingCalculator } from "@/data/calculators/aircraft-ceiling";
+import { moistAdiabatCalculator } from "@/data/calculators/moist-adiabat";
+import { fogVisibilityCalculator } from "@/data/calculators/fog-visibility";
+import { fogForecastCalculator } from "@/data/calculators/fog-forecast";
+import { windForecastCalculator } from "@/data/calculators/wind-forecast";
+import { tmaxForecastCalculator } from "@/data/calculators/tmax-forecast";
+import { stefanBoltzmannCalculator } from "@/data/calculators/stefan-boltzmann";
+import { turbulenceCoefficientCalculator } from "@/data/calculators/turbulence-coefficient";
+import { bruntVaisalaCalculator } from "@/data/calculators/brunt-vaisala";
+import { heatInfluxCalculator } from "@/data/calculators/heat-influx";
+import { clausiusClapeyronCalculator } from "@/data/calculators/clausius-clapeyron";
+import { relativeGeopotentialCalculator } from "@/data/calculators/relative-geopotential";
+import { absoluteGeopotentialCalculator } from "@/data/calculators/absolute-geopotential";
+import { geopotentialCalculator } from "@/data/calculators/geopotential";
+import { bouguerLambertCalculator } from "@/data/calculators/bouguer-lambert";
+import { vorticityCalculator } from "@/data/calculators/vorticity";
+import { gradientWindAnticycloneCalculator } from "@/data/calculators/gradient-wind-anticyclone";
+import { gradientWindCycloneCalculator } from "@/data/calculators/gradient-wind-cyclone";
 
 export type CalculatorEntry = {
   slug: string;
@@ -109,5 +132,28 @@ export const calculators: CalculatorEntry[] = [
   },
   coriolisCalculator,
   sigmaCalculator,
-  mapScaleCalculator
+  mapScaleCalculator,
+  takeoffSpeedCalculator,
+  minTempForecastCalculator,
+  moistAdiabatCalculator,
+  richardsonCalculator,
+  aircraftCeilingCalculator,
+  kineticHeatingCalculator,
+  icingIntensityCalculator,
+  stefanBoltzmannCalculator,
+  tmaxForecastCalculator,
+  windForecastCalculator,
+  fogForecastCalculator,
+  fogVisibilityCalculator,
+  gradientWindCycloneCalculator,
+  gradientWindAnticycloneCalculator,
+  vorticityCalculator,
+  bouguerLambertCalculator,
+  turbulenceCoefficientCalculator,
+  geopotentialCalculator,
+  absoluteGeopotentialCalculator,
+  relativeGeopotentialCalculator,
+  clausiusClapeyronCalculator,
+  heatInfluxCalculator,
+  bruntVaisalaCalculator,
 ];
