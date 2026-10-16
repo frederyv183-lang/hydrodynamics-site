@@ -18,6 +18,19 @@ const serwist = new Serwist({
   clientsClaim: true,
   navigationPreload: true,
   runtimeCaching: defaultCache,
+  fallbacks: {
+    entries: [
+      {
+        url: "/offline",
+        matcher({ request }) {
+          if (request.mode === "navigate") return true;
+          if (request.headers.get("RSC") === "1") return true;
+          if (request.destination === "document") return true;
+          return false;
+        },
+      },
+    ],
+  },
 });
 
 serwist.addEventListeners();
