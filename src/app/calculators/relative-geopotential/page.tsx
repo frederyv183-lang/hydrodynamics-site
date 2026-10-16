@@ -23,7 +23,7 @@ export default function Page() {
             двумя изобарическими поверхностями в стандартном поле тяжести.
           </li>
           <li>
-            <strong>Формула</strong>: H_{p1}^{p2} = (R/g₀)·∫T·d ln p. При T =
+            <strong>Формула</strong>: H<sub>p1</sub><sup>p2</sup> = (R/g₀)·∫T·d ln p. При T =
             const: H = (R·T/g₀)·ln(p₁/p₂).
           </li>
           <li>
